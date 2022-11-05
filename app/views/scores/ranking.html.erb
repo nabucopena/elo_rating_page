@@ -1,30 +1,126 @@
-<table>
-  <thead>
-    <tr>
-      <td>
-        Player
-      </td>
-      <td>
-        Score
-      </td>
-      <td>
-        Games played
-      </td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @scores.each do |score| %>
-      <tr>
-        <td>
-          <%= score.name %>
-        </td>
-        <td>
-          <%= score.score %>
-        </td>
-        <td>
-          <%= score.games %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th colspan=4>
+              <div class="text-center"> Ranking </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>
+              #
+            </th>
+            <th>
+              Player
+            </th>
+            <th>
+              Score
+            </th>
+            <th>
+              Games played
+            </th>
+          </tr>
+          <% @scores.each do |score| %>
+            <tr>
+              <td>
+                <%= score.id %>
+              </td>
+              <td>
+                <%= score.name %>
+              </td>
+              <td>
+                <%= score.score %>
+              </td>
+              <td>
+                <%= score.games %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-sm">
+      <form action="/new_game" method="post">
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th colspan=2>
+                <div class="text-center"> New Game </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>
+                Winner
+              </th>
+              <td>
+                <div class="text-center">
+                  <select name="winner">
+                    <option disabled selected value> -- select an option -- </option>
+                    <% @scores.each do |player| %>
+                      <option value="<%= player.id %>"> <%= player.name %> </option>
+                    <% end %>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>
+                Loser 
+              </th>
+              <td>
+                <div class="text-center">
+                  <select name="loser">
+                    <option disabled selected value> -- select an option -- </option>
+                    <% @scores.each do |player| %>
+                      <option value="<%= player.id %>"> <%= player.name %> </option>
+                    <% end %>
+                  </select>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan=2>
+                <div class="text-center">
+                  <input type="submit">
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+
+    <div class="col-sm">
+      <form action="/new_player" method="post">
+        <table class="table table-bordered table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th colspan=2>
+                <div class="text-center"> New Player </div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="text-center">
+                  <input type="text" name="new_player" placeholder="name"> 
+                </div>
+              </td>
+              <td>
+                <input type="submit">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
