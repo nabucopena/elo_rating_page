@@ -1,24 +1,20 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Elo Rating Page
 
-Things you may want to cover:
+This page calculates Elo score when uploading games results.
 
-* Ruby version
 
-* System dependencies
+## Instalation
 
-* Configuration
+git clone https://github.com/nabucopena/elo_rating_page
 
-* Database creation
+cd elo_rating_page
 
-* Database initialization
+bundle
 
-* How to run the test suite
+rails db:create
 
-* Services (job queues, cache servers, search engines, etc.)
+rails db:migrate
 
-* Deployment instructions
-
-* ...
+rails s
