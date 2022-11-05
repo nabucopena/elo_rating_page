@@ -1,5 +1,5 @@
 class ScoresController < ApplicationController
   def ranking
-    @scores = Score.order(:score)
+    @scores = Score.order(score: :desc)
   end
 end
