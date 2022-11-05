@@ -24,10 +24,10 @@
               Games played
             </th>
           </tr>
-          <% @scores.each do |score| %>
+          <% @scores.each_with_index do |score, i| %>
             <tr>
               <td>
-                <%= score.id %>
+                <%= i + 1 %>
               </td>
               <td>
                 <%= score.name %>
