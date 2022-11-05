@@ -1,1 +1,30 @@
-Hello
+<table>
+  <thead>
+    <tr>
+      <td>
+        Player
+      </td>
+      <td>
+        Score
+      </td>
+      <td>
+        Games played
+      </td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td>
+          <%= score.name %>
+        </td>
+        <td>
+          <%= score.score %>
+        </td>
+        <td>
+          <%= score.games %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
